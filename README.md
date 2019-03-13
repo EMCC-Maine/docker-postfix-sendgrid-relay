@@ -2,20 +2,20 @@
 Docker Build/ Run SMTP (for use by Jenkins Master):
 
 # Clone
-git clone https://github.com/PaulLockwood/docker-postfix-office365-relay.git
-cd docker-postfix-office365-relay/
+git clone https://github.com/EMCC-Maine/docker-postfix-sendgrid-relay.git
+cd docker-postfix-sendgrid-relay/
 
 # Build docker container
-docker build -t sj-smtp-relay .
+docker build -t emcc-smtp-relay .
 
 # Start docker container (--detach to run in background) 
 docker run --detach -i -t --restart unless-stopped \
 	-p 25:25 \
 	-e SYSTEM_TIMEZONE="America/New_York" \
--e MYNETWORKS="10.0.0.0/8 192.168.0.0/16 172.0.0.0/8 192.168.1.1/16" \
-	-e EMAIL="user@domain.com" \
-	-e EMAILPASS="the-password" \
---name smtp-relay \
+        -e MYNETWORKS="10.0.0.0/8 192.168.0.0/16 172.0.0.0/8 192.168.1.1/16" \
+	-e API="apikey" \
+	-e APIKEY="apikeyfromsendgrid" \
+        --name smtp-relay \
 	sj-smtp-relay
 
 # To test
