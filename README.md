@@ -16,7 +16,7 @@ docker run --detach -i -t --restart unless-stopped \
 	-e API="apikey" \
 	-e APIKEY="apikeyfromsendgrid" \
         --name smtp-relay \
-	sj-smtp-relay
+	emcc-smtp-relay
 
 # To test
 sendemail -f jim@bbc.com -t jim@bbc.com -u subject -m "RelayedViaOffice365" -s localhost:25 -o tls=no
