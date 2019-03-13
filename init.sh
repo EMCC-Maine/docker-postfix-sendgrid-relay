@@ -14,8 +14,7 @@ if [ ! -z "${MYNETWORKS}" ]; then
 fi
 
 # General the email/password hash and remove evidence.
-if [ ! -z "${EMAIL}" ] && [ ! -z "${EMAILPASS}" ]; then
-#    echo "[smtp.gmail.com]:587    ${EMAIL}:${EMAILPASS}" > /etc/postfix/sasl_passwd
+if [ ! -z "${APIKEY}" ] && [ ! -z "${API}" ]; then
     echo "[smtp.sendgrid.net]:587    ${APIKEY}:${API}" > /etc/postfix/sasl_passwd
     postmap /etc/postfix/sasl_passwd
     rm /etc/postfix/sasl_passwd
