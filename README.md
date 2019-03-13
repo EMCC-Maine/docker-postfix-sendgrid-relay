@@ -21,6 +21,9 @@ docker run --detach -i -t --restart unless-stopped \
 # To test
 sendemail -f jim@bbc.com -t jim@bbc.com -u subject -m "RelayedViaOffice365" -s localhost:25 -o tls=no
 
+#Test using Powershell
+Send-MailMessage -From 'jim@bbc.com' -To 'jim@bbc.com' -Subject 'Testing Send Grid Relay' -Body 'Body of sendgrid relay test.' -SmtpServer 'IP/FQDN of relay server'
+
 # Stop (and remove otherwise the name is help on to)
 docker stop smtp-relay && docker rm smtp-relay
 ```
